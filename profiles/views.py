@@ -7,9 +7,14 @@ logger = logging.getLogger(__name__)
 
 
 def profiles(request):
-    if request.GET.get("key") == "test":
-        return HttpResponse("Profiles with test key")
+    message = []
+    for key, value in request.GET.items():
+        message.append(f'{key} = {value}')
+
     if len(request.POST):
         for key, value in request.POST.items():
             logger.info(f"{key} = {value}")
-    return HttpResponse("Profiles index view")
+
+    if len(message):
+        return HttpResponse(f"Profile view with GET params: {', '.join(message)}")
+    return HttpResponse("Profile view")

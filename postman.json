@@ -1,0 +1,114 @@
+{
+	"info": {
+		"_postman_id": "c25ff672-b375-4224-ac50-d4c2c716bfb2",
+		"name": "Blog",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3976577"
+	},
+	"item": [
+		{
+			"name": "GET profiles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/profiles/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"profiles",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET profiles with params",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/profiles/?key1=value1&key2=param2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"profiles",
+						""
+					],
+					"query": [
+						{
+							"key": "key1",
+							"value": "value1"
+						},
+						{
+							"key": "key2",
+							"value": "param2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST profiles with params",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "post-param1",
+							"value": "post-value1",
+							"type": "text"
+						},
+						{
+							"key": "post-param2",
+							"value": "post-value2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/profiles/?get-param1=get-value1&get-param2=get-value2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"profiles",
+						""
+					],
+					"query": [
+						{
+							"key": "get-param1",
+							"value": "get-value1"
+						},
+						{
+							"key": "get-param2",
+							"value": "get-value2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
