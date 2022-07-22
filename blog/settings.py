@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,10 +21,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-+$i!yi_*%po*p8+0mucwi6b8_t(u$^657u&lz7ezqct$1_sp#x'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -78,7 +79,7 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.environ.get('DATABASE_PATH'),
     }
 }
 
@@ -143,3 +144,9 @@ LOGGING = {
        }
    }
 }
+
+MY_VAR = os.environ.get('MY_ENV_VAR')
+
+FIRST_VAR = os.environ.get('FIRST_VAR')
+SECOND_VAR = os.environ.get('SECOND_VAR')
+THIRD_VAR = os.environ.get('THIRD_VAR')
