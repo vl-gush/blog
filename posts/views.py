@@ -1,4 +1,3 @@
-from django.conf import settings
 from django.http import HttpResponse
 import logging
 
@@ -8,17 +7,16 @@ logger = logging.getLogger(__name__)
 
 
 def index(request):
-    get_dict = request.GET.items()
+    get_params = request.GET.items()
     post_list = Post.objects.all()
-    if get_dict:
-        for key, value in get_dict:
-            if key == 'title':
-                post_list = post_list.filter(title__icontains=value)
-            if key == 'slug':
-                post_list = post_list.filter(slug__icontains=value)
-            if key == 'created_at':
-                post_list = post_list.filter(created_at__lt=value)
-            if key == 'author_id':
-                post_list = post_list.filter(autor_id=value)
-    post_list = post_list.filter(author=request.user)
+    for key, value in get_params:
+        if key == 'title':
+            post_list = post_list.filter(title__icontains=value)
+        if key == 'slug':
+            post_list = post_list.filter(slug__icontains=value)
+        if key == 'created_at':
+            post_list = post_list.filter(created_at__lt=value)
+        if key == 'author_id':
+            post_list = post_list.filter(autor_id=value)
+    # post_list = post_list.filter(author=request.user)
     return HttpResponse(", ".join([x.title for x in post_list]))
