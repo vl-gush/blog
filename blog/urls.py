@@ -17,9 +17,10 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 
-from posts.views import index
 from profiles.views import profiles, register, login_view, logout_view
 from shop.views import products
+
+from myapp.views import myapp_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,6 +29,7 @@ urlpatterns = [
     path('register/', register, name='register'),
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
+    path('myapp/', myapp_view, name='myapp'),
     path('api/', include('api.urls', namespace='api'))
 ]
 
