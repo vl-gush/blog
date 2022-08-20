@@ -1,6 +1,5 @@
 from django.conf import settings
 from django.db import models
-from django.db.models import ImageField
 
 COLOR = (('red', 'Red color'), ('green', 'Green color'), ('white', 'White color'))
 
@@ -13,7 +12,7 @@ class Product(models.Model):
         blank=True,
         null=True,
     )
-    image = ImageField(upload_to="products/", blank=True, null=True)
+    image = models.ImageField(upload_to="products/", blank=True, null=True)
     cost = models.IntegerField()
 
     def __str__(self):

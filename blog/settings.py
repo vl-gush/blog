@@ -170,3 +170,14 @@ MY_VAR = os.environ.get('MY_ENV_VAR')
 FIRST_VAR = os.environ.get('FIRST_VAR')
 SECOND_VAR = os.environ.get('SECOND_VAR')
 THIRD_VAR = os.environ.get('THIRD_VAR')
+
+# https://www.django-rest-framework.org/tutorial/quickstart/
+
+REST_FRAMEWORK = {
+   "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+   "DEFAULT_AUTHENTICATION_CLASSES": [
+       "rest_framework.authentication.BasicAuthentication",
+       "rest_framework.authentication.SessionAuthentication",
+   ],
+   "PAGE_SIZE": 10,
+}
