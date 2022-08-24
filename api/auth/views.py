@@ -1,4 +1,6 @@
+from django.contrib.auth import authenticate, logout
 from rest_framework import status
+from rest_framework.authtoken.models import Token
 from rest_framework.generics import CreateAPIView
 from rest_framework.response import Response
 
@@ -31,3 +33,11 @@ class LoginView(CreateAPIView):
             return Response(status=status.HTTP_404_NOT_FOUND)
         token = Token.objects.get_or_create(user=user)[0].key
         return Response(status=status.HTTP_200_OK, data={"token": token})
+
+
+class LogoutView(CreateAPIView):
+    permission_classes = []
+
+    def post(self, request):
+        logout(request)
+        return Response(status=status.HTTP_200_OK)

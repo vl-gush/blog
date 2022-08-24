@@ -23,3 +23,6 @@ class TestAuthViews:
         response = self.client.post("/api/login/", data=data)
         assert response.status_code == 200
         assert "token" in response.data
+
+        response = self.client.post("/api/logout/")
+        assert response.status_code == 200
