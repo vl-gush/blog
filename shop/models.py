@@ -1,14 +1,14 @@
 from django.conf import settings
 from django.db import models
 
-COLOR = (('red', 'Red color'), ('green', 'Green color'), ('white', 'White color'))
+COLOR_CHOICES = (('red', 'Red color'), ('green', 'Green color'), ('white', 'White color'))
 
 
 class Product(models.Model):
     title = models.CharField(max_length=200)
     color = models.CharField(
         max_length=200,
-        choices=COLOR,
+        choices=COLOR_CHOICES,
         blank=True,
         null=True,
     )

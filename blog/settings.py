@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     "rest_framework.authtoken",
+    "django_filters",
     'crispy_forms',
     'crispy_bootstrap5',
     'posts',
@@ -181,4 +182,5 @@ REST_FRAMEWORK = {
        "rest_framework.authentication.SessionAuthentication",
    ],
    "PAGE_SIZE": 10,
+    "DEFAULT_FILTER_BACKENDS": ["django_filters.rest_framework.DjangoFilterBackend"],
 }
