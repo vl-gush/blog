@@ -24,7 +24,7 @@ class OmaSpider(scrapy.Spider):
             default_image = 'products/no-image.jpg'
             image = product.css(".product-item_img-box .catlg_list_img::attr(src)").get()
             image_name = os.path.split(image)[1]
-            if image_name == "preloader_small.gif":
+            if image_name in ["preloader_small.gif", "ae11c2c794ae1426e22257345387078e.gif"]:
                 image_path = default_image
             else:
                 image_path = os.path.join('products', image_name)
