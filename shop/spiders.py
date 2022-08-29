@@ -21,14 +21,14 @@ class OmaSpider(scrapy.Spider):
             except Exception:
                 cost = 0
 
-            default_image = 'media/products/no-image.jpg'
+            default_image = 'products/no-image.jpg'
             image = product.css(".product-item_img-box .catlg_list_img::attr(src)").get()
             image_name = os.path.split(image)[1]
             if image_name == "preloader_small.gif":
                 image_path = default_image
             else:
-                image_path = os.path.join('media/products', image_name)
-                with open(image_path, 'wb') as img:
+                image_path = os.path.join('products', image_name)
+                with open(os.path.join('media', image_path), 'wb') as img:
                     img.write(requests.get(f'http://{self.name}/{image}').content)
 
             data = {
