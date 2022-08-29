@@ -176,11 +176,11 @@ THIRD_VAR = os.environ.get('THIRD_VAR')
 # https://www.django-rest-framework.org/tutorial/quickstart/
 
 REST_FRAMEWORK = {
-   "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
-   "DEFAULT_AUTHENTICATION_CLASSES": [
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "DEFAULT_AUTHENTICATION_CLASSES": [
        "rest_framework.authentication.BasicAuthentication",
        "rest_framework.authentication.SessionAuthentication",
-   ],
-   "PAGE_SIZE": 10,
+    ],
+    "PAGE_SIZE": 10,
     "DEFAULT_FILTER_BACKENDS": ["django_filters.rest_framework.DjangoFilterBackend"],
 }
