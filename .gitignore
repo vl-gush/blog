@@ -10,3 +10,10 @@ __pycache__/
 *$py.class
 
 .env
+
+# pyenv settings
+.python-version
+
+# keys
+id_rsa
+id_rsa.*
