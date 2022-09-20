@@ -1,3 +1,5 @@
+
+
 {% extends "base.html" %}
 {% load static %}
 
@@ -7,7 +9,7 @@
   <div class="container">
     <h1>Homepage</h1>
     <div class="row">
-      {% for product in product_list %}
+      {% for product in paginator %}
         {% if forloop.counter0|divisibleby:3 %}
           </div><div class="row mb-3">
         {% endif %}
@@ -29,5 +31,7 @@
           </div>
         </div>
       {% endfor %}
+    </div>
+    {% include "pagination.html" %}
   </div>
 {% endblock %}
