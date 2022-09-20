@@ -1,15 +1,16 @@
+
+
 # PyCharm files
 .idea/
 
 # Virtual environments
 .venv/
+media/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
-
-.env
 
 # pyenv settings
 .python-version
