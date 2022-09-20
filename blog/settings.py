@@ -26,26 +26,27 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'my-secret-key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(os.environ.get('DEBUG', True))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'rest_framework',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "rest_framework",
     "rest_framework.authtoken",
     "django_filters",
-    'crispy_forms',
-    'crispy_bootstrap5',
-    'posts',
-    'profiles',
-    'shop',
+    "crispy_forms",
+    "crispy_bootstrap5",
+    "blog",
+    "posts",
+    "profiles",
+    "shop",
 ]
 
 MIDDLEWARE = [
@@ -91,11 +92,20 @@ DATABASES = {
        "NAME": "django",
        "USER": "django",
        "PASSWORD": "django",
-       "HOST": "localhost",
+       "HOST": os.environ.get("DATABASE_HOST", "localhost"),
        "PORT": 5432,
    }
 }
 
+# https://docs.djangoproject.com/en/4.1/ref/settings/#caches
+
+REDIS_HOST = os.environ.get("REDIS_HOST", "localhost")
+CACHES = {
+   "default": {
+       "BACKEND": "django.core.cache.backends.redis.RedisCache",
+       "LOCATION": f"redis://{REDIS_HOST}:6379",
+   }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
